@@ -1,0 +1,28 @@
+dependencies:
+  button:
+    public: true
+    version: ^4
+  esp_codec_dev:
+    public: true
+    version: ~1.5
+  esp_video:
+    public: true
+    version: ~2.0
+  espressif/esp_lvgl_port:
+    public: true
+    version: ^2
+  idf: '>=5.4'
+  led_indicator:
+    public: true
+    version: ^2
+description: Board Support Package (BSP) for ESP32-S3-EYE
+repository: git://github.com/espressif/esp-bsp.git
+repository_info:
+  commit_sha: 061f8d63a478ff15f5d002ffa1c1e47728545463
+  path: bsp/esp32_s3_eye
+tags:
+- bsp
+targets:
+- esp32s3
+url: https://github.com/espressif/esp-bsp/tree/master/bsp/esp32_s3_eye
+version: 6.0.0
