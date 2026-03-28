@@ -91,7 +91,7 @@ static void up_sleep_task(void *arg)
         if (up_pressed) {
             ESP_LOGI(TAG, "UP+ pressed (raw=%d). Going to light sleep...", raw);
 
-            wait_up_release();
+            //wait_up_release();
 
             ESP_ERROR_CHECK(esp_sleep_disable_wakeup_source(ESP_SLEEP_WAKEUP_ALL));
             ESP_ERROR_CHECK(esp_sleep_enable_gpio_wakeup());
@@ -115,5 +115,7 @@ void up_sleep_init(void)
 
 void up_sleep_task_start(void)
 {
-    xTaskCreate(up_sleep_task, "up_sleep", 4096, NULL, 3, NULL);
+    TaskHandle_t sleep_h = NULL;    
+    xTaskCreatePinnedToCore(up_sleep_task, "up_sleep", 4096, NULL, 3, &sleep_h,1);
+    task_mgr_register(sleep_h);
 }

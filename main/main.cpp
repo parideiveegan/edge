@@ -35,7 +35,7 @@ extern "C" void app_main(void)
     uint8_t who = 0;
     qma_read(REG_WHO_AM_I, &who, 1);
     if (who != 0xE7) {
-        printf("IMU not detected (WHO_AM_I=0x%02X)\n", who);
+        printf("sensor not detected (WHO_AM_I=0x%02X)\n", who);
         while (1) vTaskDelay(pdMS_TO_TICKS(1000));
     }
 
